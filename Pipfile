@@ -10,7 +10,7 @@ prospector = "*"
 factory-boy = "*"
 
 [packages]
-django = "==2.2"
+django = "==2.2.13"
 
 [requires]
 python_version = "3.7"
