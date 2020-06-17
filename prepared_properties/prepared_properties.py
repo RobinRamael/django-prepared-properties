@@ -38,7 +38,8 @@ class NamedDescriptor(ABC):
                 )
 
             warnings.warn(
-                f"Getting property {self}. " "Use qs.prepare to make this more efficient."
+                f"Getting property {self}. "
+                "Use qs.prepare to make this more efficient."
             )
             return self.getter.__call__(instance)
 
@@ -50,17 +51,17 @@ class NamedDescriptor(ABC):
         instance._properties_cache[self.field_name] = value
         self._was_prepared = True
 
-    def __del__(self):
-        if self._was_prepared and self._never_used:
-            warnings.warn(f"Property {self} was prepared but never used.")
-
     def __str__(self):
         return f"<{self.__class__.__name__}({self.owner.__name__}.{self.field_name})>"
 
 
 class AnnotatedProperty(NamedDescriptor):
-    def __init__(self, annotation, getter=None, field_name=None, depends_on=None):
-        super().__init__(field_name=field_name or getattr(getter, "__name__", None),)
+    def __init__(
+        self, annotation, getter=None, field_name=None, depends_on=None
+    ):
+        super().__init__(
+            field_name=field_name or getattr(getter, "__name__", None),
+        )
         self.getter = getter
 
         self._annotation = annotation
@@ -78,7 +79,9 @@ class AnnotatedProperty(NamedDescriptor):
 
     @property
     def depends_on(self):
-        return (getattr(self.owner, prop_name) for prop_name in self._depends_on)
+        return (
+            getattr(self.owner, prop_name) for prop_name in self._depends_on
+        )
 
 
 class _AnnotatedPropertyFactory:
@@ -132,7 +135,9 @@ class PropertiedQueryset(QuerySet):
     def prepare(self, *properties):
         return self.annotate_properties(
             *[p for p in properties if isinstance(p, AnnotatedProperty)]
-        ).prefetch_properties(*[p for p in properties if isinstance(p, PrefetchedProperty)])
+        ).prefetch_properties(
+            *[p for p in properties if isinstance(p, PrefetchedProperty)]
+        )
 
     def annotate_properties(self, *properties):
         qs = self
