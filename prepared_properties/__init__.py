@@ -2,10 +2,14 @@
 
 __author__ = """Robin Ramael"""
 __email__ = "robin.ramael@gmail.com"
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
-from .prepared_properties import (AnnotatedProperty, PrefetchedProperty,
-                                  PropertiedQueryset, annotated_property)
+from .prepared_properties import (
+    AnnotatedProperty,
+    PrefetchedProperty,
+    PropertiedQueryset,
+    annotated_property,
+)
 
 __all__ = [
     "AnnotatedProperty",
