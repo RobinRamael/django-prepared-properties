@@ -2,7 +2,7 @@
 
 __author__ = """Robin Ramael"""
 __email__ = "robin.ramael@gmail.com"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 from .prepared_properties import (
     AnnotatedProperty,

@@ -51,7 +51,6 @@ class NamedDescriptor(ABC):
         self._was_prepared = True
 
     def __del__(self):
-        print(f"deleting {self}")
         if self._was_prepared and self._never_used:
             warnings.warn(f"Property {self} was prepared but never used.")
 

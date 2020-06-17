@@ -1,9 +1,12 @@
 from django.db import models
-from django.db.models import (BooleanField, Case, Count, F, OuterRef, Q,
-                              Subquery, Value, When)
+from django.db.models import BooleanField, Case, Count, F, OuterRef, Q, Subquery, Value, When
 
-from prepared_properties import (AnnotatedProperty, PrefetchedProperty,
-                                 PropertiedQueryset, annotated_property)
+from prepared_properties import (
+    AnnotatedProperty,
+    PrefetchedProperty,
+    PropertiedQueryset,
+    annotated_property,
+)
 
 
 class Person(models.Model):
