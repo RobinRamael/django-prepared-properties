@@ -19,6 +19,13 @@ annotation dependencies and builds the correct queryset for you.
 Requires python 3.6 and django 2.2. It probably works on django 3, but I haven't
 tried it (PRs welcome <3)
 
+Installation
+------------
+
+```
+pip install prepared-properties
+```
+
 Annotated Properties
 --------------------
 
