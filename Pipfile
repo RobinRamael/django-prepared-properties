@@ -8,6 +8,7 @@ black = "*"
 isort = "*"
 prospector = "*"
 factory-boy = "*"
+bumpversion = "*"
 
 [packages]
 django = "==2.2"
