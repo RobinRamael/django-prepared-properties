@@ -40,7 +40,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/robinramael/prepared_properties",
+    url="https://github.com/robinramael/django-prepared-properties",
     version="1.0.3",
     zip_safe=False,
 )
